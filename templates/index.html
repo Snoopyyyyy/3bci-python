@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}"/>
+    <title>Ma Machine</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Les informations de ta machine</h1>
+
+        <section class="resultat">
+            <table class="table">
+                {% for key in maMachine %}
+                    <tr class="ligne">
+                        <td class="key">{{ key }} :</td>
+                        <td class="value">{{ maMachine[key] }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+
+            <div class="img-container">
+                <img src="{{ url_for('static', filename='img/' + maMachine['Systeme'] + '.png') }}" alt="" />
+            </div>
+        </section>
+    </div>
+</body>
+</html>
